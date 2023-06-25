@@ -21,7 +21,6 @@ runs:
         repo: obmarg/cynic
         tag: v3.2.0
         cache: enable
-        extension: xz
     - name: Print thing
       shell: bash
       run: "ls /opt/hostedtoolcache/obmarg/cynic/v3.2.0/linux-x64; echo $PATH"
