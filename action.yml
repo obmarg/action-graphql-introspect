@@ -1,0 +1,26 @@
+name: 'Introspect GraphQL Schema'
+description: 'Introspects a GraphQL schema'
+inputs:
+  server-url:
+    description: 'The URL of the server to introspect'
+    required: true
+  output-file:  # id of input
+    description: 'The file in the repository to output the schema into'
+    required: true
+#outputs:
+#  changed:
+#    description: "Whether the schema changed since the last introspection"
+#    value: ${{ steps.random-number-generator.outputs.random-number }}
+runs:
+  using: "composite"
+  steps:
+    - name: Install cynic-cli
+      uses: jaxxstorm/action-install-gh-release@v1.10.0
+      with: 
+        repo: obmarg/cynic
+        tag: v3.2.0
+        cache: enable
+        extension: xz
+    - name: Introspect using cargo CLI
+      shell: bash
+      run: "cynic introspect ${{ inputs.server-url }} -o ${{ inputs.output-file }}"
