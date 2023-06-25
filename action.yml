@@ -15,7 +15,8 @@ runs:
   using: "composite"
   steps:
     - name: Install cynic-cli
-      uses: jaxxstorm/action-install-gh-release@v1.10.0
+      #uses: jaxxstorm/action-install-gh-release@v1.10.0
+      uses: obmarg/action-install-gh-release@patch-1
       with: 
         repo: obmarg/cynic
         tag: v3.2.0
