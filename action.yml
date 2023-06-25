@@ -23,7 +23,7 @@ runs:
         cache: enable
     - name: Print thing
       shell: bash
-      run: "ls /opt/hostedtoolcache/obmarg/cynic/v3.2.0/linux-x64; echo $PATH"
+      run: "ls -l /opt/hostedtoolcache/obmarg/cynic/v3.2.0/linux-x64; echo $PATH"
     - name: Introspect using cargo CLI
       shell: bash
       run: "cynic introspect ${{ inputs.server-url }} -o ${{ inputs.output-file }}"
