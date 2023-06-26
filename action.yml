@@ -15,15 +15,11 @@ runs:
   using: "composite"
   steps:
     - name: Install cynic-cli
-      #uses: jaxxstorm/action-install-gh-release@v1.10.0
-      uses: obmarg/action-install-gh-release@patch-1
+      uses: jaxxstorm/action-install-gh-release@v1.10.0
       with: 
         repo: obmarg/cynic
         tag: v3.2.1
         cache: enable
-    - name: Print thing
-      shell: bash
-      run: "ls -l /opt/hostedtoolcache/obmarg/cynic/v3.2.1/linux-x64; echo $PATH"
     - name: Introspect using cargo CLI
       shell: bash
       run: "cynic introspect ${{ inputs.server-url }} -o ${{ inputs.output-file }}"
